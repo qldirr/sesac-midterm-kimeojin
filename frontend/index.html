@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>김어진</title>
     <link rel="stylesheet" href="public/index.css">
-    <script src="public/index.js"></script>
+    
 </head>
 <body>
     <div class="todo-container">
@@ -16,11 +16,12 @@
         </div>
         <form id="todo-form">
     
-            <input type="text" name="todoInput" onkeydown="keyCodeCheck()"/>
+            <input type="text" class="todoInput" onkeydown="keyCodeCheck()"/>
             <button onclick="addTodo()">작성</button>
         </form>
     
-        <ul class="todoList"></div>
+        <ul id="todo-list"></div>
     </div>
+    <script src="public/index.js"></script>
 </body>
 </html>

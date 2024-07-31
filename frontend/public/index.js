@@ -1,8 +1,8 @@
-const todoList = document.querySelector('.todoList')
+const todoList = document.getElementById('todo-list')
 const form = document.getElementById('todo-form')
-const todoInput = document.querySelector('input[name = "todoInput"]')
-const newTodo = todoInput.value.trim()
+const todoInput = document.querySelector('.todoInput')
 
+// DOM 내용이 완전히 로드되었을 때 getTodos 함수 실행
 window.addEventListener("DOMContentLoaded", (event) => {
     getTodos()
 });
@@ -13,27 +13,32 @@ function getTodos() {
         .then(res => res.json())
         .then(json => {
             const getTodoList = json.slice(0, 10)
-            console.log('get', getTodoList);
-            const li = document.createElement('li')
-            const span = document.createElement('span')
-            const delBtn = document.createElement('button')
-            delBtn.innerText = 'X'
-
-            getTodoList.forEach((value) => {
-                console.log('va', value);
-                span.innerHTML = value.title
+            
+            for (let i=0; i < getTodoList.length; i++){
+                const li = document.createElement('li')
+                const span = document.createElement('span')
+                const delBtn = document.createElement('button')
+                console.log('et', getTodoList[i]);
+                delBtn.innerText = 'X'
+                span.textContent = getTodoList[i].title
                 li.appendChild(span)
                 li.appendChild(delBtn)
                 todoList.appendChild(li)
-            });
+            }
+            
+            // getTodoList.forEach((value, index) => {
+            //     console.log('va', value);
+                
+            // });
 
         })
 
 }
 
 
-
+// Enter 키 입력시에도 addTodo() 실행
 function keyCodeCheck() {
+    const newTodo = todoInput.value.trim()
     if (window.event.keyCode === 13 && newTodo !== '') {
         addTodo()
     }
@@ -41,15 +46,16 @@ function keyCodeCheck() {
 
 // Todo 추가
 function addTodo() {
-
-
+    const newTodo = todoInput.value.trim()
     const newTodoLi = document.createElement('li')
-    const newBtn = document.createElement('button')
+    const newDelBtn = document.createElement('button')
     const newSpan = document.createElement('span')
-    newTodoLi.appendChild(newBtn)
+
+    newDelBtn.innerText = 'X'
+    newSpan.textContent = newTodo
+    newTodoLi.appendChild(newDelBtn)
     newTodoLi.appendChild(newSpan)
 
-    newSpan.textContent = newTodo
     todoList.appendChild(newTodoLi)
 
     todoInput.value = ''
