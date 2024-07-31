@@ -1,3 +1,5 @@
+const todoList = document.querySelector('.todoList')
+
 window.addEventListener("DOMContentLoaded", (event) => {
     getTodos()
   });
@@ -6,8 +8,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
 function getTodos(){
     fetch('https://jsonplaceholder.typicode.com/todos')
         .then(res => res.json())
-        .then(res => {
-            res.slice(10)
+        .then(json => {
+            console.log(json);
+            const getTodoList = json.slice(0, 10)
+            console.log('get', getTodoList);
+            const li = document.createElement('li')
+
+            todoList.innerHTML = `${getTodoList.title} - ${getTodoList.completed}`
         })
     
 }
@@ -23,7 +30,11 @@ function addTodo(){
 
     if(newTodo !== ''){
         const newTodoLi = document.createElement('li')
+        newTodoLi.append(newTodo)
+        todos.append(newTodoLi)
     }
+
+    todoInput.value = ''
 }
 
 // Todo 삭제
