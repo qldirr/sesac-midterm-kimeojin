@@ -49,14 +49,17 @@ function addTodo() {
     const newDelBtn = document.createElement('button')
     const newSpan = document.createElement('span')
 
-    newDelBtn.innerText = 'X'
-    newSpan.textContent = newTodo
-    newTodoLi.appendChild(newDelBtn)
-    newTodoLi.appendChild(newSpan)
-
-    todoList.appendChild(newTodoLi)
-
-    todoInput.value = ''
+    if (window.event.keyCode === 13 && newTodo !== '') {
+        
+        newDelBtn.innerText = 'X'
+        newSpan.textContent = newTodo
+        newTodoLi.appendChild(newDelBtn)
+        newTodoLi.appendChild(newSpan)
+    
+        todoList.appendChild(newTodoLi)
+    
+        todoInput.value = ''
+    }
 }
 
 // Todo 삭제
