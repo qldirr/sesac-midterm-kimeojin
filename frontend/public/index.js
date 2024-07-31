@@ -18,19 +18,17 @@ function getTodos() {
                 const li = document.createElement('li')
                 const span = document.createElement('span')
                 const delBtn = document.createElement('button')
-                console.log('et', getTodoList[i]);
+                const checkbox = document.createElement('input')
+                checkbox.setAttribute('type','checkbox')
+                todoList.style.listStyle = 'none'
                 delBtn.innerText = 'X'
                 span.textContent = getTodoList[i].title
+                li.appendChild(checkbox)
                 li.appendChild(span)
                 li.appendChild(delBtn)
                 todoList.appendChild(li)
             }
             
-            // getTodoList.forEach((value, index) => {
-            //     console.log('va', value);
-                
-            // });
-
         })
 
 }
