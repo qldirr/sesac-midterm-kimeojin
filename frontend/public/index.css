@@ -1,0 +1,19 @@
+/* .todo-container{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+} */
+ .header{
+    width: 50%;
+    background-color: #14cf34;
+ }
+
+ img{
+    width: 50%;
+ }
+
+ h2{
+    /* display: flex;
+    justify-content: center; */
+    color: white;
+ }

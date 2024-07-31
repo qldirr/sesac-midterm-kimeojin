@@ -8,13 +8,19 @@
     <script src="public/index.js"></script>
 </head>
 <body>
-    <h2>Todo List</h2>
-    <form id="todo-form">
+    <div class="todo-container">
+        <div class="header">
 
-        <input type="text" name="todoInput"/>
-        <button onclick="addTodo()">작성</button>
-    </form>
-
-    <ul class="todoList"></div>
+            <img src="public/codingon.png" alt="codingon">
+            <h2>Todo List</h2>
+        </div>
+        <form id="todo-form">
+    
+            <input type="text" name="todoInput" onkeydown="keyCodeCheck()"/>
+            <button onclick="addTodo()">작성</button>
+        </form>
+    
+        <ul class="todoList"></div>
+    </div>
 </body>
 </html>
